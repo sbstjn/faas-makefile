@@ -4,6 +4,8 @@
 
 # Configuration
 
+The `Makefile` assumes a basic magic configuration. This can easily be changed, or overwritten.
+
 ```makefile
 PROJECT_SCOPE ?= faas
 PROJECT_NAME ?= makefile
@@ -19,6 +21,8 @@ FILE_PACKAGE = ./dist/stack.yml
 ```
 
 # Commands
+
+Run `make configure package deplout outputs` and you're down. Tooling should be easy and not a barrier. 😍
 
 ## Configure
 
