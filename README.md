@@ -4,7 +4,9 @@
 
 # Configuration
 
-The `Makefile` assumes a basic magic configuration. This can easily be changed, or overwritten.
+The `Makefile` assumes a basic magic configuration.
+
+Everything can easily be changed, or overwritten.
 
 ```makefile
 PROJECT_SCOPE ?= faas
@@ -22,7 +24,9 @@ FILE_PACKAGE = ./dist/stack.yml
 
 # Commands
 
-Run `make configure package deplout outputs` and you're down. Tooling should be easy and not a barrier. 😍
+Run `make configure package deploy outputs` and you're done.
+
+Tooling should make things easier and not be a barrier. 😍
 
 ## Configure
 
