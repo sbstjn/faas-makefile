@@ -10,6 +10,32 @@
 - [AWS Serverless Application Model w/ Go](https://github.com/sbstjn/faas-sam-lambda-go)
 - [AWS Serverless Application Model w/ Python](https://github.com/sbstjn/faas-sam-lambda-python)
 
+# Usage
+
+```bash
+# Download latest Makefile
+$ > curl https://raw.githubusercontent.com/sbstjn/faas-makefile/master/Makefile \
+    -o .faas
+    
+# Create custom Makefile
+$ > touch Makefile
+
+# Include FAAS Makefile
+$ > echo "include .faas" >> Makefile
+
+# Add Example task
+$ > echo "\nfoo:\n\t@ echo \"Done.\"" >> Makefile
+
+# Run Example task
+$ > make foo
+Done.
+
+# Run FAAS tasks
+$ > make configure package deploy
+
+[…]
+```
+
 # Configuration
 
 The `Makefile` assumes a basic magic configuration.
