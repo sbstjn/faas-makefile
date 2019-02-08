@@ -5,6 +5,11 @@
 
 > Reusable Makefile to bootstrap AWS::Serverless CloudFormation projects
 
+# Examples
+
+- [AWS Serverless Application Model w/ Go](https://github.com/sbstjn/faas-sam-lambda-go)
+- [AWS Serverless Application Model w/ Python](https://github.com/sbstjn/faas-sam-lambda-python)
+
 # Configuration
 
 The `Makefile` assumes a basic magic configuration.
