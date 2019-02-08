@@ -20,8 +20,11 @@ $ > curl https://raw.githubusercontent.com/sbstjn/faas-makefile/master/Makefile 
 # Create custom Makefile
 $ > touch Makefile
 
+# Configure Project Name
+$ > echo "PROJECT_NAME = example" >> Makefile
+
 # Include FAAS Makefile
-$ > echo "include .faas" >> Makefile
+$ > echo "\ninclude .faas" >> Makefile
 
 # Add Example task
 $ > echo "\nfoo:\n\t@ echo \"Done.\"" >> Makefile
@@ -33,7 +36,7 @@ Done.
 # Run FAAS tasks
 $ > make configure package deploy
 
-[…]
+…
 ```
 
 # Configuration
