@@ -31,6 +31,7 @@ $ > echo "\nfoo:\n\t@ echo \"Done.\"" >> Makefile
 
 # Run Example task
 $ > make foo
+
 Done.
 
 # Run FAAS tasks
