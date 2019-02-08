@@ -44,9 +44,8 @@ The `Makefile` assumes a basic magic configuration.
 
 Everything can easily be changed, or overwritten.
 
-```makefile
+```make
 PROJECT_SCOPE ?= faas
-PROJECT_NAME ?= makefile
 ENV ?= stable
 PROJECT_ID ?= $(PROJECT_SCOPE)-$(PROJECT_NAME)-$(ENV)
 
