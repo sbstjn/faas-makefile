@@ -9,6 +9,7 @@
 
 - [AWS Serverless Application Model w/ Go](https://github.com/sbstjn/faas-sam-lambda-go)
 - [AWS Serverless Application Model w/ Python](https://github.com/sbstjn/faas-sam-lambda-python)
+- [AWS Serverless Application Model w/ TypeScript](https://github.com/sbstjn/faas-sam-lambda-typescript)
 
 # Usage
 
@@ -16,7 +17,7 @@
 # Download latest Makefile
 $ > curl https://raw.githubusercontent.com/sbstjn/faas-makefile/master/Makefile \
     -o .faas
-    
+
 # Create custom Makefile
 $ > touch Makefile
 
@@ -67,7 +68,6 @@ Tooling should make things easier and not be a barrier. 😍
 
 ```bash
 # Create S3 Bucket to store artifacts
-
 $ > make configure
 ```
 
@@ -75,7 +75,6 @@ $ > make configure
 
 ```bash
 # Create deployable CloudFormation file in ./dist/stack.yml
-
 $ > make package
 ```
 
@@ -83,7 +82,6 @@ $ > make package
 
 ```bash
 # Deploy CloudFormation stack from ./dist/stack.yml
-
 $ > make deploy
 ```
 
@@ -91,7 +89,6 @@ $ > make deploy
 
 ```bash
 # Delete CloudFormation stack
-
 $ > make destroy
 ```
 
@@ -99,6 +96,5 @@ $ > make destroy
 
 ```bash
 # Show CloudFormation Outputs
-
 $ > make outputs
 ```
