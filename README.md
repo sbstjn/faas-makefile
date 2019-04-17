@@ -57,6 +57,17 @@ AWS_REGION ?= eu-west-1
 
 FILE_TEMPLATE = infrastructure.yml
 FILE_PACKAGE = ./dist/stack.yml
+FILE_PARAMETERS = .parameters
+```
+
+## CloudFormation Parameters
+
+Per default, the content of a `.parameters` file is passed to the CloudFormation Stack as parameters. The content of the file must be a valid environment variable configuration:
+
+```bash
+# .parameters
+Foo=Bar
+Baz=Qux
 ```
 
 # Commands
