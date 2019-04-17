@@ -65,7 +65,6 @@ FILE_PARAMETERS = .parameters
 Per default, the content of a `.parameters` file is passed to the CloudFormation Stack as parameters. The content of the file must be a valid environment variable configuration:
 
 ```bash
-# .parameters
 Foo=Bar
 Baz=Qux
 ```
