@@ -1,3 +1,4 @@
+PROJECT_NAME ?= undefined
 PROJECT_SCOPE ?= faas
 ENV ?= stable
 PROJECT_ID ?= $(PROJECT_SCOPE)-$(PROJECT_NAME)-$(ENV)
@@ -6,8 +7,9 @@ AWS_BUCKET_NAME ?= $(PROJECT_SCOPE)-artifacts
 AWS_STACK_NAME ?= $(PROJECT_ID)
 AWS_REGION ?= eu-west-1
 
-FILE_TEMPLATE = infrastructure.yml
-FILE_PACKAGE = ./dist/stack.yml
+FILE_TEMPLATE ?= infrastructure.yml
+FILE_PACKAGE ?= ./dist/stack.yml
+FILE_PARAMETERS ?= .parameters
 
 clean:
 	@ rm -rf ./dist
@@ -26,14 +28,16 @@ package:
 		--region $(AWS_REGION) \
 		--output-template-file $(FILE_PACKAGE)
 
+deploy: PARAMETERS := $(shell if [ -f $(FILE_PARAMETERS) ]; then cat $(FILE_PARAMETERS); fi)
 deploy:
-	@ aws cloudformation deploy \
+	aws cloudformation deploy \
 		--template-file $(FILE_PACKAGE) \
 		--region $(AWS_REGION) \
 		--capabilities CAPABILITY_IAM \
 		--stack-name $(AWS_STACK_NAME) \
 		--force-upload \
 		--parameter-overrides \
+			$(PARAMETERS) \
 			ParamProjectID=$(PROJECT_ID) \
 			ParamProjectScope=$(PROJECT_SCOPE) \
 			ParamProjectName=$(PROJECT_NAME) \
