@@ -16,10 +16,12 @@
 
 ```bash
 # Download latest Makefile
+
 $ > curl https://raw.githubusercontent.com/sbstjn/faas-makefile/master/Makefile \
     -o .faas
 
 # Create custom Makefile
+
 $ > touch Makefile
 
 # Configure Project Name
