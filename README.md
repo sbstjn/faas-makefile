@@ -72,6 +72,8 @@ Baz=Qux
 
 ## Targets
 
+Tooling should make things easier and not be a barrier.
+
 ```bash
 $ > make help
 
