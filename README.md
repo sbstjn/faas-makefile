@@ -16,29 +16,26 @@
 
 ```bash
 # Download latest Makefile
-
 $ > curl https://raw.githubusercontent.com/sbstjn/faas-makefile/master/Makefile -o .faas
 
 # Create custom Makefile
-
 $ > touch Makefile
 
 # Configure Project Name
-
 $ > echo "PROJECT_NAME = example" >> Makefile
 
 # Include FAAS Makefile
 $ > echo "\ninclude .faas" >> Makefile
 
-# Add Example task
+# Add Example target
 $ > echo "\nfoo:\n\t@ echo \"Done.\"" >> Makefile
 
-# Run Example task
+# Run Example target
 $ > make foo
 
 Done.
 
-# Run FAAS tasks
+# Run FAAS targets
 $ > make configure package deploy
 
 […]
