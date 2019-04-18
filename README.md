@@ -47,6 +47,7 @@ The `Makefile` assumes a basic magic configuration.
 Everything can easily be changed, or overwritten.
 
 ```make
+PROJECT_NAME ?= undefined
 PROJECT_SCOPE ?= faas
 ENV ?= stable
 PROJECT_ID ?= $(PROJECT_SCOPE)-$(PROJECT_NAME)-$(ENV)
@@ -54,10 +55,11 @@ PROJECT_ID ?= $(PROJECT_SCOPE)-$(PROJECT_NAME)-$(ENV)
 AWS_BUCKET_NAME ?= $(PROJECT_SCOPE)-artifacts
 AWS_STACK_NAME ?= $(PROJECT_ID)
 AWS_REGION ?= eu-west-1
+AWS_PROFILE ?= default 
 
-FILE_TEMPLATE = infrastructure.yml
-FILE_PACKAGE = ./dist/stack.yml
-FILE_PARAMETERS = .parameters
+FILE_TEMPLATE ?= infrastructure.yml
+FILE_PACKAGE ?= ./dist/stack.yml
+FILE_PARAMETERS ?= .parameters
 ```
 
 ## CloudFormation Parameters
@@ -67,6 +69,16 @@ Per default, the content of a `.parameters` file is passed to the CloudFormation
 ```bash
 Foo=Bar
 Baz=Qux
+```
+
+## CloudFormation Outputs
+
+With `make variables` you can convert a Stack's Output into bash variables. This can be helpful when using multiple CloudFormation Stacks.
+
+```bash
+$ > make variables
+
+OutputName=value
 ```
 
 # Commands
