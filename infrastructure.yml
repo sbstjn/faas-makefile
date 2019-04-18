@@ -5,7 +5,7 @@ Resources:
   ExampleS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Join [-, [!Ref ParamProjectID, "example"]]
+      BucketName: !Sub ${ParamProjectID}-example
 
 Parameters:
   ParamProjectName:
