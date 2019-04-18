@@ -82,9 +82,7 @@ OutputName=value
 
 # Targets
 
-Run `make configure package deploy outputs` and you're done.
-
-Tooling should make things easier and not be a barrier. 😍
+Run `make configure package deploy outputs` and you're done. Tooling should make things easier and not be a barrier. 😍
 
 ```bash
 $ > make help
@@ -99,41 +97,6 @@ describe     Show description of CloudFormation Stack
 parameters   Show Parameters for CloudFormation Stack
 outputs      List Outputs of CloudFormation Stack
 variables    List Outputs of CloudFormation Stack as bash variables
-```
-
-## Configure
-
-```bash
-# Create S3 Bucket to store artifacts
-$ > make configure
-```
-
-## Package
-
-```bash
-# Create deployable CloudFormation file in ./dist/stack.yml
-$ > make package
-```
-
-## Deploy
-
-```bash
-# Deploy CloudFormation stack from ./dist/stack.yml
-$ > make deploy
-```
-
-## Destroy
-
-```bash
-# Delete CloudFormation stack
-$ > make destroy
-```
-
-## Outputs
-
-```bash
-# Show CloudFormation Outputs
-$ > make outputs
 ```
 
 ## License
