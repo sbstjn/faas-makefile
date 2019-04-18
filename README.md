@@ -45,7 +45,7 @@ $ > make configure package deploy
 
 The `Makefile` assumes a basic magic configuration. Everything can easily be changed, or overwritten.
 
-```make
+```bash
 PROJECT_NAME ?= undefined
 PROJECT_SCOPE ?= faas
 ENV ?= stable
