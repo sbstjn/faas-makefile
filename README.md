@@ -6,13 +6,13 @@
 
 > Reusable Makefile to bootstrap AWS::Serverless CloudFormation projects
 
-# Examples
+## Examples
 
 - [AWS Serverless Application Model w/ Go](https://github.com/sbstjn/faas-sam-lambda-go)
 - [AWS Serverless Application Model w/ Python](https://github.com/sbstjn/faas-sam-lambda-python)
 - [AWS Serverless Application Model w/ TypeScript](https://github.com/sbstjn/faas-sam-lambda-typescript)
 
-# Usage
+## Usage
 
 ```bash
 # Download latest Makefile
@@ -41,7 +41,7 @@ $ > make configure package deploy
 […]
 ```
 
-# Configuration
+## Configuration
 
 The `Makefile` assumes a basic magic configuration. Everything can easily be changed, or overwritten.
 
@@ -61,7 +61,7 @@ FILE_PACKAGE ?= ./dist/stack.yml
 FILE_PARAMETERS ?= .parameters
 ```
 
-## CloudFormation Parameters
+### CloudFormation Parameters
 
 Per default, the content of a `.parameters` file is passed to the CloudFormation Stack as [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html). The content of the file must be a valid environment variable configuration:
 
@@ -70,19 +70,9 @@ Foo=Bar
 Baz=Qux
 ```
 
-## CloudFormation Outputs
+## Targets
 
-With `make variables` you can convert a Stack's [Output](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) into bash variables. This can be helpful when using multiple CloudFormation Stacks.
-
-```bash
-$ > make variables
-
-OutputName=value
-```
-
-# Targets
-
-Run `make configure package deploy outputs` and you're done. Tooling should make things easier and not be a barrier. 😍
+Tooling should make things easier and not be a barrier. 😍
 
 ```bash
 $ > make help
@@ -97,6 +87,18 @@ describe     Show description of CloudFormation Stack
 parameters   Show Parameters for CloudFormation Stack
 outputs      List Outputs of CloudFormation Stack
 variables    List Outputs of CloudFormation Stack as bash variables
+```
+
+Run `make configure package deploy outputs` and you're done. 
+
+### CloudFormation Outputs
+
+With `make variables` you can convert a Stack's [Output](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) into bash variables. This can be helpful when using multiple CloudFormation Stacks.
+
+```bash
+$ > make variables
+
+OutputName=value
 ```
 
 ## License
