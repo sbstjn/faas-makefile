@@ -35,7 +35,7 @@ $ > make foo
 
 Done.
 
-# Run FAAS targets
+# Run FaaS targets
 $ > make configure package deploy
 
 […]
