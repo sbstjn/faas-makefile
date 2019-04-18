@@ -72,8 +72,6 @@ Baz=Qux
 
 ## Targets
 
-Tooling should make things easier and not be a barrier. 😍
-
 ```bash
 $ > make help
 
@@ -98,8 +96,6 @@ $ > make variables
 
 OutputName=value
 ```
-
- This can be helpful when using multiple CloudFormation Stacks.
 
 ## License
 
