@@ -89,17 +89,17 @@ outputs      List Outputs of CloudFormation Stack
 variables    List Outputs of CloudFormation Stack as bash variables
 ```
 
-Run `make configure package deploy outputs` and you're done. 
-
 ### CloudFormation Outputs
 
-With `make variables` you can convert a Stack's [Output](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) into bash variables. This can be helpful when using multiple CloudFormation Stacks.
+With `make variables` you can convert a Stack's [Output](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) into bash variables.
 
 ```bash
 $ > make variables
 
 OutputName=value
 ```
+
+ This can be helpful when using multiple CloudFormation Stacks.
 
 ## License
 
