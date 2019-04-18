@@ -43,12 +43,7 @@ deploy: ## Deploy CloudFormation Stack
 		--capabilities CAPABILITY_NAMED_IAM CAPABILITY_IAM CAPABILITY_AUTO_EXPAND \
 		--stack-name $(AWS_STACK_NAME) \
 		--no-fail-on-empty-changeset \
-		--parameter-overrides \
-			$(shell if [ -f $(FILE_PARAMETERS) ]; then cat $(FILE_PARAMETERS); fi) \
-			ParamProjectID=$(PROJECT_ID) \
-			ParamProjectScope=$(PROJECT_SCOPE) \
-			ParamProjectName=$(PROJECT_NAME) \
-			ParamENV=$(ENV)
+		--parameter-overrides $(shell $(MAKE) parameters)
 
 destroy: ## Delete CloudFormation Stack
 	@ aws cloudformation delete-stack \
@@ -64,10 +59,17 @@ describe: ## Show description of CloudFormation Stack
 		$(if $(value QUERY), --query '$(QUERY)',) \
 		$(if $(value FORMAT), --output '$(FORMAT)',)
 
+parameters: ## Show Parameters for CloudFormation Stack
+	@ echo $(shell if [ -f $(FILE_PARAMETERS) ]; then cat $(FILE_PARAMETERS); fi) \
+			ProjectScope=$(PROJECT_SCOPE) \
+			ProjectName=$(PROJECT_NAME) \
+			ProjectID=$(PROJECT_ID) \
+			ENV=$(ENV)
+
 outputs: ## List Outputs of CloudFormation Stack
 	@ QUERY=Stacks[0].Outputs $(MAKE) describe
 
 variables: ## List Outputs of CloudFormation Stack as bash variables
 	@ FORMAT=text $(MAKE) outputs | awk 'BEGIN {FS="\t"}; {print $$2 "=" $$3}'
 
-.PHONY: clean configure package deploy destroy describe outputs variables
+.PHONY: clean configure package deploy destroy describe outputs variables parameters

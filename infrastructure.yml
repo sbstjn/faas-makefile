@@ -5,19 +5,22 @@ Resources:
   ExampleS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ${ParamProjectID}-example
+      BucketName: !Sub ${ProjectID}-example
 
 Parameters:
-  ParamProjectName:
+  ProjectScope:
     Type: String
-  ParamProjectScope:
+  ProjectName:
     Type: String
-  ParamProjectID:
+  ProjectID:
     Type: String
-  ParamENV:
+  ENV:
     Type: String
 
 Outputs:
   ProjectID:
     Description: Project ID
-    Value: !Ref ParamProjectID
+    Value: !Ref ProjectID
+  ENV:
+    Description: Environment ID
+    Value: !Ref ENV

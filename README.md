@@ -33,18 +33,18 @@ $ > echo "\nfoo:\n\t@ echo \"Done.\"" >> Makefile
 
 # Run Example task
 $ > make foo
+
 Done.
 
 # Run FAAS tasks
 $ > make configure package deploy
-…
+
+[…]
 ```
 
 # Configuration
 
-The `Makefile` assumes a basic magic configuration.
-
-Everything can easily be changed, or overwritten.
+The `Makefile` assumes a basic magic configuration. Everything can easily be changed, or overwritten.
 
 ```make
 PROJECT_NAME ?= undefined
@@ -64,7 +64,7 @@ FILE_PARAMETERS ?= .parameters
 
 ## CloudFormation Parameters
 
-Per default, the content of a `.parameters` file is passed to the CloudFormation Stack as parameters. The content of the file must be a valid environment variable configuration:
+Per default, the content of a `.parameters` file is passed to the CloudFormation Stack as [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html). The content of the file must be a valid environment variable configuration:
 
 ```bash
 Foo=Bar
@@ -73,7 +73,7 @@ Baz=Qux
 
 ## CloudFormation Outputs
 
-With `make variables` you can convert a Stack's Output into bash variables. This can be helpful when using multiple CloudFormation Stacks.
+With `make variables` you can convert a Stack's [Output](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) into bash variables. This can be helpful when using multiple CloudFormation Stacks.
 
 ```bash
 $ > make variables
@@ -81,11 +81,26 @@ $ > make variables
 OutputName=value
 ```
 
-# Commands
+# Targets
 
 Run `make configure package deploy outputs` and you're done.
 
 Tooling should make things easier and not be a barrier. 😍
+
+```bash
+$ > make help
+
+help         Show help
+clean        Remove ./dist folder
+configure    Create S3 Bucket for artifacts
+package      Pack CloudFormation template
+deploy       Deploy CloudFormation Stack
+destroy      Delete CloudFormation Stack
+describe     Show description of CloudFormation Stack
+parameters   Show Parameters for CloudFormation Stack
+outputs      List Outputs of CloudFormation Stack
+variables    List Outputs of CloudFormation Stack as bash variables
+```
 
 ## Configure
 
